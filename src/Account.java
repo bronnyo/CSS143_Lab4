@@ -1,10 +1,10 @@
-/**
- * Account.java
- *
- * This Account class represents bank accounts that stores money for an owner.
- *
- * Author: (Ian Bryan)
- */
+/* *
+ * Class Description:
+ * @author Ian Bryan
+ * @version 10/22/2018
+ * 
+ * 
+ * */
 public class Account
 {
 	// Instance variables

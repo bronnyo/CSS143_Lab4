@@ -1,3 +1,10 @@
+/**
+ * Class Description:
+ * @author Ian Bryan
+ * @version 10/22/2018
+ * 
+ * 
+ * */
 public class DebugMe{
 
 	public static void main(String args[]){

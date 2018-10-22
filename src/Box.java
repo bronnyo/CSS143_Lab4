@@ -1,6 +1,9 @@
-//This class represents a box with a width, height, and depth.
-//The variable grade is a measure of the thickness of the cardboard
-//used to construct the box.
+/**
+ * Class Description:
+ * @author Ian Bryan
+ * @version 10/22/2018
+ * 
+ */
 
 public class Box{
 

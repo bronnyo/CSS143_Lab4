@@ -1,5 +1,3 @@
-package lab4_p2;
-
 /**
  * Account.java
  *

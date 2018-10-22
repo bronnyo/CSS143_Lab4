@@ -1,5 +1,3 @@
-package lab4_p2;
-
 public class DebugMe{
 
 	public static void main(String args[]){

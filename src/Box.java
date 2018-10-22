@@ -1,5 +1,3 @@
-package lab4_p2;
-
 //This class represents a box with a width, height, and depth.
 //The variable grade is a measure of the thickness of the cardboard
 //used to construct the box.

@@ -1,4 +1,3 @@
-package lab4_p2;
 /* 
  * CSS 162 Assert Demo
  * 

@@ -1,5 +1,3 @@
-package lab4_p2;
-
 /****************************************************/
 /* 2a) the watch window for me (I moved it) sits on 
  * the right side of the code window

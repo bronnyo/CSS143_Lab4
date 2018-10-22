@@ -1,5 +1,5 @@
-
 import java.io.*;
+
 public class TestExceptions{
 	//uncomment for non-try/catch exception handling
 	//public static void main(String[] args) throws IOException {

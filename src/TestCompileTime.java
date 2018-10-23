@@ -1,16 +1,18 @@
 public class TestCompileTime
 {
 
-	public TestCompileTime()
-	{}
+	public TestCompileTime(){}
 
 	public static void main(String args[])
 	{
 		if(Debug.dmode)
 		{
-			System.err.println("Debug is turned on");
-			TestCompileTime t = new TestCompileTime();
+			System.err.print("Debug is turned on\n");
+			
+			TestCompileTime testCompileT = new TestCompileTime();
+			
 			int[] numbers = new int[4];
+			
 			for (int i=0; i<numbers.length; i++)
 			{
 				numbers[i] = i;

@@ -3,12 +3,12 @@
  * @author Ian Bryan
  * @version 10/22/2018
  * 
+ * 
  */
 
 public class Box{
 
-	private int width, depth;
-	private static int height, grade;
+	private int width, depth, height, grade;
 
 	//class constructor
 	public Box(int width, int height, int depth, int grade)
@@ -41,27 +41,27 @@ public class Box{
 	//Simple getter methods
 	public int getGrade()
 	{
-		return grade;
+		return this.grade;
 	}
 
 	public int getVolume()
 	{
-		return width * height * depth * grade;
+		return this.width * this.height * this.depth;
 	}
 
 	public int getWidth()
 	{
-		return width;
+		return this.width;
 	}
 
-	public double getHeight()
+	public int getHeight()
 	{
-		return height;
+		return this.height;
 	}
 
-	public int getDepth(int b)
+	public int getDepth()
 	{
-		return b;
+		return this.depth;
 	}
 }
 

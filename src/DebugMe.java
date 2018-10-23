@@ -3,23 +3,26 @@
  * @author Ian Bryan
  * @version 10/22/2018
  * 
- * 
+ * Errors are commented out and replaced with working code.
  * */
 public class DebugMe{
 
 	public static void main(String args[]){
 
-		//printSums(3);
+		System.out.print("Printing printSums(): \n");
+		printSums(3);
+		System.out.print("***************************\nPrinting compareBoxes(): \n");
 		compareBoxes();
 	}
 
-	//This function is designed to print the sums of all numbers between 1 and the
-	//first number entered as an argument to DebugMe
-	//For example, if you enter:  DebugMe 3
-	//You should get:
-	//	The sum of the first 1 numbers is 1.
-	//  The sum of the first 2 numbers is 3.
-	//  The sum of the first 3 numbers is 6.
+	/*This function is designed to print the sums of all numbers between 1 and the
+	 * first number entered as an argument to DebugMe
+	 * For example, if you enter:  DebugMe 3
+	 * You should get:
+	 *	The sum of the first 1 numbers is 1.
+	 * 	The sum of the first 2 numbers is 3.
+	 * 	The sum of the first 3 numbers is 6.
+	 * */
 
 	public static void printSums(int theNumber){
 		{
@@ -32,23 +35,25 @@ public class DebugMe{
 		}
 	}
 
-	//This function demonstrates the use of the Box class
-	//DO NOT change anything in this function
-	//use it to test your corrections to the Box class
+	/*
+	 * This function demonstrates the use of the Box class
+	 * DO NOT change anything in this function
+	 * use it to test your corrections to the Box class
 
-	//The following is what your output should look like when your
-	//Box class is correct.
+	 * The following is what your output should look like when your
+	 * Box class is correct.
 
-	//Box 0 is larger than Box 1.
-	//Box 0 is equivalent to Box 2.
-	//Box 0 is smaller than Box 3.
-	//Box 0 is larger than Box 4.
-	//Box 1 is smaller than Box 2.
-	//Box 1 is smaller than Box 3.
-	//Box 1 is smaller than Box 4.
-	//Box 2 is smaller than Box 3.
-	//Box 2 is larger than Box 4.
-	//Box 3 is larger than Box 4.
+	 * Box 0 is larger than Box 1.
+	 * Box 0 is equivalent to Box 2.
+	 * Box 0 is smaller than Box 3.
+	 * Box 0 is larger than Box 4.
+	 * Box 1 is smaller than Box 2.
+	 * Box 1 is smaller than Box 3.
+	 * Box 1 is smaller than Box 4.
+	 * Box 2 is smaller than Box 3.
+	 * Box 2 is larger than Box 4.
+	 * Box 3 is larger than Box 4.
+	 * */
 
 
 	public static void compareBoxes(){

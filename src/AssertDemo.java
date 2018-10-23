@@ -1,134 +1,138 @@
-/* 
- * CSS 162 Assert Demo
- * 
- * Usage: This software is configured to crash your program immediately upon execution.
- * If your software doesn't crash, you don't have assertions enabled (use "-ea")
- * in your editor.  Google the name of your editor and "how to enable asserts" or follow
- * the instructions specific to BlueJ or Eclipse in the lab.
- * 
- * Author: Rob Nash
- */
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/*
+ * (1) Which technique do you prefer?
+ * 		a. Why?
+ * 		I prefer the debugger because it has more control over the flow and pace of execution.
+ * 
+ * (2) Are some debugging techniques more (or less) appropriate for longer programs?
+ * 	Some tools would probably be best with small logic programs or areas in large amounts of code that are targeted
+ * 	and known to have issues. Using asserts through a massive program with lots of server and client side programming is not
+ * 	ideal, but step-throughs are also unncessary for small programs that only require a few lines of code or small classes.
+ * 	Each have benefits depending on class and problem size.
+ * 	
+ * (3) What are the advantages to using a debugger with a GUI?
+ * 		a. What can you inspect here that you couldn’t when just printing to the console?
+ * 			Having a GUI to work with the debugger and have that in turn affect the compiler is really helpful to control
+ * 			the flow of data. It helps to use a more visual approach sometimes when you aren't sure how exactly a line or module
+ * 			is behaving.
+ * (4) How can proper documentation help in finding and avoiding bugs?
+ * 		Proper documentation is key not only for the person writing but the people reading. It's necessary that the 
+ * 		language and commentary is understood so future development is faster and troubleshooting is more collaborative.
+ * */
+
+/**
+ * Class Description:
+ * @author Ian Bryan
+ * @version 10/22/2018
+ * 
+ * This class is a series of assertions used in different examples. 
+ * Examples include assertions with Objects and primitives as well as some general ones that are independent
+ */
 public class AssertDemo {
 
-	/****************************************************/
-	/* 1) I prefer to use the variable view while stepping
-	 * over and into executions. I also like to build the class
-	 * around a test-driven environment so that I know the invariance
-	 * 
-	 * 2) I would say that using asserts is better for longer programs
-	 * with a lot of methods. It would cut down on the inconvenience
-	 * of having to add print statements and stepping through line
-	 * by line.
-	 *  
-	 * 3) an advantage of using a GUI debugger would be for
-	 * translation of what's actually happening without focusing
-	 * too heavily on details that are present but not relevant.
-	 *  
-	 * 4) Proper documentation is key for understanding, later, what
-	 * a methods function is or what purpose some variables have. 
-	 * This could be especially important when working in teams
-	 *  or collaboratively.
-	 *  */
-	/****************************************************/
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		assert(true);
-//		assert(false);
-//		
-//		warmUpAsserts();
-//		
-//		assertWithPrimitives();
-//		
+
+		//assert(false); //This is the bad assert since if enabled will cause all true statements to fail
+
+		warmUpAsserts();
+
+		assertWithPrimitives();
+
 		assertWithObjects();
-//		
-//		homeworkRelatedAsserts();
+
+		homeworkRelatedAsserts();
 	}
 
-	/*
-	 * Just a few warm-up asserts here.
-	 * Add two new assert() statements after the TODO below
+	/**
+	 * Contains true assertion statements and will fail if assert(false)
+	 * is used in main.
 	 */
 	private static void warmUpAsserts() {	
-			assert( 5 > 1 );
-			
-			int a = 30;
-			assert(a != 0);
-	
-			assert(null == null);
-			assert(true == true);
-			
-			//new asserts (x2)
-			assert(0 < 1 || 1> 0);
-			String str1 = "string1";
-			String str2 = "String1";
-			assert(str1.equalsIgnoreCase(str2));
+		assert( 5 > 1 );
+
+		int a = 30;
+		assert(a != 0);
+
+		assert(null == null);  
+		assert(true == true);
+		
+		/*Two Extra Asserts*/
+		assert(false == false);
+		assert(1 < 5);
 	}
 
-	/*
-	 * Using asserts in conjunction with primitive types is familiar to you;
-	 * just as in a loop or if, you want to form a true/false (boolean) expression
-	 * by employing the relational operators.
+	/**
+	 * Contains Scanner for collecting user input stored in a numerator and denominator
+	 * Will produce assertion errors if false assert()'s are added.
+	 * 
+	 * Checks that if numerator and denominator are equal, the value is 1.
 	 */
 	private static void assertWithPrimitives() {
-		//assert below to ensure a Fraction's denominator is never 0
 		Scanner keys = new Scanner(System.in);
 		System.out.println("Enter an integer numerator:");
 		int num = keys.nextInt();
-				
+
 		System.out.println("Enter an int denominator, not 0:");
 		int denom = keys.nextInt();
-				
-		assert(denom != 0);
-	
+
+		assert(denom != 0); //assert denominator cannot be 0
+
 		//assert that all ArrayLists start empty
 		ArrayList<String> emptyList = new ArrayList<String>();
 		assert(emptyList.size() == 0);
+		keys.close();
+		/*Two Extra Asserts*/
+		if(num == denom) {
+			assert(num/denom == 1);
+		}else {
+			assert(num/denom > 1 || num/denom < 1);
+		}
 	}
 	
-	/*
-	 * Asserts work with both primitives and objects.  Just as you 
-	 * use "==" with primitives and ".equals()" with objects, so too 
-	 * will you use ".equals()" in asserts that deal with object equality. 
+	/**
+	 * Using assert statements with object instantiation. Square.class was used in Lab 2 and again here
+	 * to check that it's true when copying a Square that their areas are equal.
 	 */
 	private static void assertWithObjects() {
 		AssertDemo ad = new AssertDemo();
 		ad.checkAddress(ad);		
-		//guess what .equals() does if you don't create one yourself? (hint ==)
-		assert( ad.equals(ad) );  
-		//TODO: make a few objects from any previous lab and test them with assert
-		//example: make two Point objects at the origin and assert they are equal
-		//assert(p1.equals(p2);  //example
+		
+		assert(ad.equals(ad));  
+		
+		Square sq1 = new Square(10, 10, 10);
+		Square sq2 = sq1;
+		
+		assert(sq1.getArea() == sq2.getArea()): "Areas are teh same";
+		
 	}
 
 
-	/*
-	 * This function compares the address at "this" to the address of the object handed 
-	 * into the function.
-	 * this references the current object in memory
-	 * while 'input' references the copy(?) of the current
-	 * object in memory. The addresses should be the same
-	 * because it is still the same object.
+	/**
+	 * @param input <p>Represents and object to compare with.
 	 */
 	public void checkAddress(Object input) {
-		System.out.println("Address of this :" + this);
-		System.out.println("Address of input:" + input);
+		System.out.println("Address of this: " + this);
+		System.out.println("Address of input: " + input);
+		//2 total instances of this are represented here by the keywords 'this' and 'input'
 		assert(this.equals(input));
-		assert(input.equals(this)); //opposite of above
 	}
 
-	/*	
-	 * Asserts are a useful tool for transforming postconditions and class invariants into code.
-	 * Lets build a few asserts that work with your current Bill & Money assignment.
-	 * Change the value of paidDate and cents to trip the asserts and observe the asserted error message. 
+	/**
+	 * Contains assertion statemtents applicable to latest homework.
 	 */
 	private static void homeworkRelatedAsserts() {
-		Object paidDate = new Object();  //really, a Date 
-		assert( paidDate != null);  	 //perhaps one rule is that paidDate shouldn't be null after calling setPaidDate()
-		int cents = 0;
-		assert( cents >= 0 && cents <=99);  //another class invariant is written as an assert here.
-		//TODO: craft 2 more asserts that you could use with any assignment
+		Object paidDate = null;
+		assert(paidDate != null);
+		int cents = 101;
+		assert( cents >= 0 && cents <=99);  
+		
+		//assert(month >= 1);
+		//assert(day >= 1);
 	}
 }

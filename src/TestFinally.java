@@ -1,5 +1,12 @@
 import java.io.*;
 
+/**
+ * Class Description:
+ * @author Ian Bryan
+ * @version 10/22/2018
+ * 
+ * TestFinally.java 
+ */
 public class TestFinally{
 	public static void main(String[] args){
 		FileInputStream in1 = null;
@@ -20,8 +27,8 @@ public class TestFinally{
 			while ((c1 = in2.read()) != -1){
 				System.out.println("Read from nosuchfile.abc");
 			}
-		}catch(IOException fnf){
-			System.out.println("The exception is " + fnf);
+		}catch(IOException e){
+			System.out.println("The exception is " + e);
 		}finally{
 			try {
 				in1.close();
